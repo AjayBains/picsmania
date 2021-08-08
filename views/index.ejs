@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="container">
+        <div class="pics content">
+            <h2 class = pics-heading>All pics(click on a pic to see details/delete)</h2>
+        
+            <% if (pics.length> 0) { %>
+                <% pics.forEach(pic=> { %>
+                    <a class="single" href="/pics/<%= pic._id %>">
+                        <img src=<%=pic.address%> alt=<= %pic.name%>>
+                        <div class="single-content">
+                            <p>
+                                Name: <%= pic.name%>
+                            </p>
+                            <p>
+                                Pic by : <%= pic.by%>
+                            </p>
+
+                        </div>
+                           
+                    </a>
+                    <% }) %>
+                        <% } else { %>
+                            <p>There are no pics to display...</p>
+                            <% } %>
+        
+        </div>
+    </div>
+    
+
+    <%- include("./partials/footer.ejs") %>
+    
+</body>
+
+</html>
