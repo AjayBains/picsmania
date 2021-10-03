@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const pics = require("./routes/pics");
+const userRouter = require("./routes/userRoutes");
 const connectDB = require("./db/connect");
 require("dotenv").config();
 // viewing engine
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/pics", pics);
+app.use("/users", userRouter);
 
 // const port = process.env.PORT || 3000;
 app.set("port", process.env.PORT || 5000);
